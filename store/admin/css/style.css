@@ -1,0 +1,49 @@
+*
+{
+	padding : 5px;
+	margin : 5px;
+}
+
+body
+{
+	background : white;
+	color : black;
+}
+
+.page_list ul
+{
+	list-style-type : none;
+	display: flex;
+}
+
+.page_list ul li {
+	background: black;
+	color: white;
+	font-weight: 800;
+}
+
+.page_list ul li a
+{
+	text-decoration : none;
+	color: white;
+	font-size: 25px;
+}
+
+.contents
+{
+	display: flex;
+}
+
+.contents .boxes{
+	width:50%;
+}
+
+.error
+{
+	color: red;
+}
+
+.done
+{
+	color:green;
+}
