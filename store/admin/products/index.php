@@ -38,6 +38,7 @@
 						";
 						while($prod = $products->fetch_assoc()){
 							//echo $prod['product_name'];
+							echo "<img src='../img/{$prod['product_image']}'>";
 							echo "<tr>";
 								echo "<td>";
 									echo $prod['product_name'];

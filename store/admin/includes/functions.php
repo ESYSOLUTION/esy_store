@@ -31,16 +31,13 @@ function upload_product($pname, $pdetail, $pprice, $pimage, $pstatus){
 	//echo $pdetail;
 	//echo $pprice;
 	
-	var_dump($pimage);
+	//var_dump($pimage);
+
 	
-	if(move_uploaded_file($_FILES["pimage"]["tmp_name"],"img/" . $_FILES["pimage"]["name"])){
-     	echo"<font size = '5'><font color=\"#0CF44A\">SAVED<br>";
-    		show_message("Saved ", "done");
-	
-		$image = $_FILES['pmage']['name'];
+	$image = $_FILES['pimage']['name'];
 		
 	$sql = "insert into products (product_name, product_price, product_details, product_image, status)
-	values(\"$pname\", \"$pprice\", \"$pdetail\", \"$image\", \"$pstatus\")";
+	values(\"$pname\", \"$pprice\", \"$pdetail\", \"$pimage\", \"$pstatus\")";
 	$upload = $db->query($sql); 
 	
 	if($upload){
@@ -48,11 +45,6 @@ function upload_product($pname, $pdetail, $pprice, $pimage, $pstatus){
 	}else{
 		show_message("Product not Uploaded ".mysqli_error($db), "error");
 	}
-	
-	}else{
-		show_message("Image not saved ".$_FILES['pimage']['error'], "error");
-	}
-	
 	
 }
 

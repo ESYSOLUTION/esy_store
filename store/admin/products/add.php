@@ -31,7 +31,12 @@
 		$product_status = escape($_POST['p_status']);//product status
 		$product_image = $_FILES['p_image'];//product image
 		$product_price = escape($_POST['p_price']);//product price
-		upload_product($product_name, $product_detail, $product_price, $product_image, $product_status);
+		if(move_uploaded_file($_FILES["p_image"]["tmp_name"],"../img/" . $_FILES["p_image"]["name"])){
+     		show_message("Image saved", "done");
+			upload_product($product_name, $product_detail, $product_price, $_FILES["p_image"]["name"], $product_status);
+		}else{
+			show_message("Image not uploaded", "error");
+		}
 	}
 ?>
 						<div class="form-group">
