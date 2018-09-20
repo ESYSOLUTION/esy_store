@@ -2,6 +2,12 @@
 {
 	padding : 5px;
 	margin : 5px;
+	text-decoration : none;
+}
+
+*.focus
+{
+	outline: 0px;
 }
 
 body
@@ -10,40 +16,110 @@ body
 	color : black;
 }
 
+.header
+{
+	background : orange;
+	position : static;
+}
+
+.page_list
+{
+	background: #f0e29e;
+}
+
 .page_list ul
 {
 	list-style-type : none;
-	display: flex;
+	display : flex;
+	width : 100%;
 }
 
-.page_list ul li {
-	background: black;
-	color: white;
-	font-weight: 800;
+.page_list ul li
+{
+	background : black;
+	color : white;
+	font-weight : 800;
+	border-radius: 10px;
 }
 
 .page_list ul li a
 {
 	text-decoration : none;
-	color: white;
-	font-size: 25px;
+	color : white;
+	font-size : 25px;
+}
+
+.main
+{
+	width: 100%;
 }
 
 .contents
 {
-	display: flex;
+	width : 100%;
 }
 
-.contents .boxes{
-	width:50%;
+.box
+{
+	width : 90%;
+	border-radius : 10px;
+	background-color : #bda0f5;
+	padding: 15px;
+}
+
+.box-head
+{
+	background-color : blue;
+	color : white;
+	border-radius : 10px;
+	padding: 30px;
+	font-size: 30px;
+}
+
+.box-figure
+{
+	font-size : 100pt;
+	text-align : center;
 }
 
 .error
 {
-	color: red;
+	color : red;
 }
 
 .done
 {
-	color:green;
+	color : green;
+}
+
+table
+{
+	boder : 0px;
+	width : 100%;
+}
+
+table tr th
+{
+	border : 1px solid blue;
+	text-align : left;
+}
+
+table tr td
+{
+	border : 0px;
+	text-align : center;
+	padding : 20px;
+	font-weight: 800;
+	font-size: 20pt;a
+	background-color: #ffdb7e;
+}
+
+.button
+{
+	background : blue;
+	color : white;
+	border-radius : 5px;
+	font-weight : 800;
+	padding: 10px;
+	margin-top: 15px;
 }

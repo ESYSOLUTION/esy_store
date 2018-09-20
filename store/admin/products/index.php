@@ -1,7 +1,8 @@
 <?php
 	include "../includes/init.php";
-	
-	$products = select_all_from('products');
+	$sql = "select * from products";
+	$products = $db->query($sql);
+	//$products = select_all_from('products');
 ?>
 <html>
 	<title>Esy Store Admin</title>
@@ -12,41 +13,63 @@
 	<body>
 	
 	<!-- HEADER STARTS -->
-		<div class="header">
-			<h1>Esy Store | Products</h1>
-		</div>
+		<?php include "../includes/header.php";?>
 	<!-- HEADER STOPS -->
 	
 	<!--NAVIGATION STARTS-->
-		<div class="nav">
-		
-			<div class="page_list">
-			<ul>
-				<li><a href="index.php">Home</a></li>
-				<li><a href="products.php">Products</a></li>
-				<li><a href="orders.php">Orders</a></li>
-				<li><a href="messages.php">Messages</a></li>
-			</ul>
-			</div>
-		</div>
+		<?php include "../includes/nav_bar.php";?>
 		
 		<div class="main">
-			<a href="add_products.php">Add Products</a>
+			<a class='button' href="add.php">Add Products</a>
 			<div class="contents">
 				<?php
 					if($products->num_rows == 0){
 						show_message('No Product In The Database', 'error');
 					}else{
-					//	echo "<table>";
+					//$prod = $products->fetch_assoc();
+						echo "<table>
+							<tr>
+								<th>Product Name</th>
+								<th>Product Price</th>
+								<th>Product Id</th>
+								<th>Date Added</th>
+								<th>Actions</th>
+							</tr>
+						";
 						while($prod = $products->fetch_assoc()){
-							echo $prod->product_name;
+							//echo $prod['product_name'];
+							echo "<tr>";
+								echo "<td>";
+									echo $prod['product_name'];
+								echo "</td>";
+								
+								echo "<td>";
+									echo $prod['product_price'];
+								echo "</td>";
+								
+								echo "<td>";
+									echo $prod['date'];
+								echo "</td>";
+								
+								echo "<td>";
+									echo strtoupper($prod['status']);
+								echo "</td>";
+								
+								echo "<td>";
+									echo "<a class='button'>Delete</a>";
+									echo "<a class='button'>Update</a>";
+									echo "<a class='button'>View</a>";
+								echo "</td>";
+								
+							echo "</tr>";
 						}
-					//	echo "</table>" ;
+						echo "</table>" ;
 					}
 				?>
 			</div>
 		</div>
 		
+		<!--FOOYER START-->
 		<div class="footer">
 			
 		</div>
