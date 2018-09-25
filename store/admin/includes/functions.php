@@ -10,6 +10,17 @@ function select_all_from($table) {
 	return $data;
 }
 
+function place_order($id){
+	global $db;
+	$sql = "update orders set status=\"active\" where id={$id}";
+	$update = $db->query($sql);
+	if($update){
+		return $update;
+	}else{
+		return $db->error;
+	}
+}
+
 function delete_this_row($table, $id){
 	global $db;
 	$sql = "delete from {$table} where id={$id}";
@@ -38,6 +49,10 @@ function select_from_table_where($table, $column, $value){
 /*
 *	Normal Functions
 */
+function get_session_value($ses_key){
+	return $_SESSION[$ses_key];
+}
+
 function show_message($message, $type){
 	if($type == "error"){
 		echo "
@@ -66,6 +81,10 @@ function alert($text){
 
 function redirect($url){
 	header("location: {$url}");
+}
+
+function set_session_variable($variable, $value){
+	return $_SESSION["$variable"] = $value;
 }
 
 function upload_product($pname, $pdetail, $pprice, $pimage, $pstatus){
