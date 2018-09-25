@@ -1,9 +1,16 @@
 <?php
+	session_start();
 	include "./includes/init.php";
+	$pagename = "Home";
 	$products = select_all_from('products');
 	$orders = select_all_from('orders');
-	
+	$messages = select_all_from('messages');
 	//var_dump($orders);
+	
+	if(!Auth()){
+		redirect('login.php');
+	}
+	
 ?>
 <html>
 	<title>Esy Store Admin</title>
@@ -14,29 +21,15 @@
 	<body>
 	
 	<!-- HEADER STARTS -->
-		<div class="header">
-			<h1>Esy Store | Admin</h1>
-		</div>
+		<?php include "includes/header.php";?>
 	<!-- HEADER STOPS -->
 	
 	<!--NAVIGATION STARTS-->
-		<div class="nav">
-		
-			<div class="page_list">
-			<center>
-			<ul>
-				<li><a href="index.php">Home</a></li>
-				<li><a href="products">Products</a></li>
-				<li><a href="orders.php">Orders</a></li>
-				<li><a href="messages.php">Messages</a></li>
-			</ul>
-			</center>
-			</div>
-		</div>
+		<?php include "includes/nav_bar.php";?>
 		
 		<div class="main">
 			<div class="contents">
-			
+			<p>You are logged in as <?php echo $_SESSION['user']?></p>
 				<div class="box">
 					<div class="box-head">Products</div>
 					<div class="box-body">
@@ -48,7 +41,7 @@
 				<div class="box">
 					<div class="box-head">Messages</div>
 					<div class="box-body">
-						<p class="box-figure"><?php echo $products->num_rows?></p>
+						<p class="box-figure"><?php echo $messages->num_rows?></p>
 					</div>
 					<div class="box-footer"><a class="button" href="#">more</a></div>
 				</div>

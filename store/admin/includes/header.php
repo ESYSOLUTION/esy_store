@@ -2,6 +2,6 @@
 
 ?>
 <div class="header">
-	<h1>Esy Store | Products
+	<h1>Esy Store | <?php echo $pagename?>
 	</h1>
 </div>

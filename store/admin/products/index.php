@@ -1,8 +1,9 @@
 <?php
 	include "../includes/init.php";
-	$sql = "select * from products";
-	$products = $db->query($sql);
-	//$products = select_all_from('products');
+	$pagename = "Products";
+	//$sql = "select * from products";
+	//$products = $db->query($sql);
+	$products = select_all_from('products');
 ?>
 <html>
 	<title>Esy Store Admin</title>
@@ -38,7 +39,7 @@
 						";
 						while($prod = $products->fetch_assoc()){
 							//echo $prod['product_name'];
-							echo "<img src='../img/{$prod['product_image']}'>";
+						//	echo "<img src='../img/{$prod['product_image']}'>";
 							echo "<tr>";
 								echo "<td>";
 									echo $prod['product_name'];
@@ -57,9 +58,9 @@
 								echo "</td>";
 								
 								echo "<td>";
-									echo "<a class='button'>Delete</a>";
-									echo "<a class='button'>Update</a>";
-									echo "<a class='button'>View</a>";
+									echo "<a href='delete.php?id={$prod['id']}' class='button'>Delete</a>";
+									echo "<a href='edit.php?id={$prod['id']}' class='button'>Edit</a>";
+									echo "<a href='view.php?id={$prod['id']}' class='button'>View</a>";
 								echo "</td>";
 								
 							echo "</tr>";

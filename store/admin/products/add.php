@@ -1,5 +1,6 @@
 <?php
 	include "../includes/init.php";
+	$pagename = "Add Products";
 ?>
 <html>
 	<title>Esy Store Admin</title>
