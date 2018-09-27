@@ -50,7 +50,11 @@ function select_from_table_where($table, $column, $value){
 *	Normal Functions
 */
 function get_session_value($ses_key){
-	return $_SESSION[$ses_key];
+	if(isset($_SESSION[$ses_key])){
+		return $_SESSION[$ses_key];
+	}else{
+		return "No session with {$ses_key} key is set";
+	}
 }
 
 function show_message($message, $type){

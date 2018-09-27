@@ -67,7 +67,7 @@
 						</div>
 
 						<div class="form-group">
-							<select value="<?php echo $product['status']?>" class="input" name="p_status">
+							<select selected="<?php echo $product['status']?>" class="input" name="p_status">
 								<option value="">Choose Product Status</option>
 								<option value="available">Available</option>
 								<option value="not available">Not Available</option>

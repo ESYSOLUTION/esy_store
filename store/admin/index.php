@@ -40,7 +40,9 @@
 	<!--	MAIN PAGE	-->
 		<div class="main">
 			<div class="contents">
-			<p>You are logged in as <?php echo $_SESSION['user']?></p>
+			<p>You are logged in as</p>
+			<p>Username <?php echo get_session_value('user')?></p>
+			<p>Email <?php echo get_session_value('email'); ?></p>
 				<div class="box">
 					<div class="box-head">Products</div>
 					<div class="box-body">

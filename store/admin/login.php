@@ -22,13 +22,14 @@
 			login($email, $pass);
 	}else{
 		show_message("You are not logged In", "error");
+	//	show_message(get_session_value('msg'), 'error');
 	}
 ?>
 	<div class="contents">
 		<div class="box">
 		
 			<form action="login.php" method="POST" >
-			
+			<?php echo get_session_value('msg')?>
 			<caption><h1>Login Here</h1></caption>
 				<div class="form-group">
 					<input class="input" name="email" type="text" placeholder="E-mail"/>
