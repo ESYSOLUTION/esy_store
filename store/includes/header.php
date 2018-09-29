@@ -1,7 +1,14 @@
 	<?php 
 		include "includes/db.php";
 	?>
+	<html>
+	<title>Esy Store Admin</title>
+	<head>
+		<link rel="stylesheet" href="../css/style.css"/>
+		<link rel="stylesheet" href="../css/form.css"/>
+	</head>
 	
+	<body>
 	<!-- HEADER -->
 	<header>
 		<!-- top Header -->

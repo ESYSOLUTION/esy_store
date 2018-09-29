@@ -41,10 +41,11 @@
 					</div>
 					<div>
 						<a href='delete.php?id=<?php echo $product['id']?>' class='button'>Delete</a>
-						/ <a href='update.php?id=<?php echo $prod['id']?>' class='button'>Update</a>
+						<a href='update.php?id=<?php echo $prod['id']?>' class='button'>Update</a>
 					</div>
 					<div>
-						<p>Price <b>#<?php echo $product['product_price']?></b></p>
+						<p>Price: <b>#<?php echo $product['product_price']?></b></p>
+						<p>Product Type: <?php echo strtoupper($product['type'])?></p>
 						<p>Detail:</p>
 						<p><?php echo $product['product_details']?></p>
 					</div>
